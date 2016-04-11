@@ -1,4 +1,4 @@
-MD使用总结
+MD使用
 -----
 #####标题
 ###### #一级标题(简称大标题，也可以直接写标题，然后标题下一行用===表示，===个数无显示)
@@ -44,3 +44,6 @@ tab + * + 文本 //一级目录
 【！【baidu】】（http://baidu.com）
 <br>【baidu】：http://www.baidu.com/img/bdlogo.gif "百度Logo" 
 <br>* 【】中的标记要一致
+
+
+[`参考`](http://blog.csdn.net/kaitiren/article/details/38513715)
