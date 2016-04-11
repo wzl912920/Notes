@@ -1,0 +1,7 @@
+#### Android studio环境搭建中遇到的问题
+
+  * 一、svn配置相关
+    * 1、安装TortoiseSvn<br>File -> Other Settings -> Default Settings -> Version Control -> Subversion -> Use command line client:[path\svn.ext]<br>安装svn的时候要注意勾选安装命令行，否则安装目录中不会出现svn.exe
+    * 2、Settings -> Version Control 选中项目的条目将VCS选到Subversion即可
+    * 3、VCS -> Import Into Version Control -> Import Into Subversion -> 选择“+”添加svn路径 -> OK -> 选择本地版本路径 -> OK
+  
