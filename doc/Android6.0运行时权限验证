@@ -20,3 +20,14 @@ public void onRequestPermissionsResult(int requestCode, String[] permissions, in
 ###### Fragment中使用注意事项
   * 1、fragment中直接调用自身的requestPermission，并重写onRequestPermissionResult方法，否则会调用到activity的onRequestPermissionResult方法中。
   * 2、在子fragment中调用时，需要使用getParentFragment.requestPermission的方法，然后在父fragment中回调子fragment的onRequestPermission方法就可以了。
+
+需要进行验证的权限
+<br>BODY_SENSORS
+<br>CALENDAR
+<br>CAMERA
+<br>CONTACTS
+<br>LOCATION
+<br>AUDIO
+<br>PHONE
+<br>MESSAGE
+<br>STORAGE
