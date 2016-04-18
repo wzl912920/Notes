@@ -5,3 +5,5 @@
     * 2、Settings -> Version Control 选中项目的条目将VCS选到Subversion即可
     * 3、VCS -> Import Into Version Control -> Import Into Subversion -> 选择“+”添加svn路径 -> OK -> 选择本地版本路径 -> OK
   
+  * 二、Android Studio Gradle Configuration with name 'default' not found
+    * 1、第一次遇到，是因为所引用的dependence中没有build.gradle导致的
