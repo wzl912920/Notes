@@ -7,3 +7,4 @@
   
   * 二、Android Studio Gradle Configuration with name 'default' not found
     * 1、第一次遇到，是因为所引用的dependence中没有build.gradle导致的
+    * 2、第二次遇到是settings.gradle中没有include该项目
