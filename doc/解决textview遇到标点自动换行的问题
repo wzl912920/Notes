@@ -1,18 +1,18 @@
-package com.pj.register.component;
+package com.pj.myregistermain.ui;
 
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.Build;
-import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.pj.register.R;
-import com.pj.register.application.MyApplication;
+
+import com.pj.myregistermain.R;
+import com.pj.myregistermain.application.MyApplication;
 
 import java.util.ArrayList;
 
@@ -32,11 +32,13 @@ public class CustomTextView extends View {
     }
 
     public CustomTextView(Context context, AttributeSet set) {
-        this(context, set, 0);
+        super(context, set, 0);
+        init();
     }
 
     public CustomTextView(Context context, AttributeSet attrs, int defStyleAttr) {
-        this(context, attrs, defStyleAttr, 0);
+        super(context, attrs, defStyleAttr);
+        init();
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -49,15 +51,17 @@ public class CustomTextView extends View {
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mPaint.setColor(getResources().getColor(R.color.black));
-        mPaint.setTextSize(dip2px(16));
+        mPaint.setTextSize(dip2px(12)/getResources().getDisplayMetrics().scaledDensity + 0.5f);
         initParams();
     }
 
 
     private void initParams() {
         fm = mPaint.getFontMetrics();
-        if (lineSpace != 0) {
+        if (lineSpace > 0) {
             fm.leading = lineSpace;
+        } else {
+            fm.leading = dip2px(1);
         }
         offset = fm.descent - fm.ascent + fm.leading;
     }
@@ -90,11 +94,11 @@ public class CustomTextView extends View {
             height = heightSize;
         } else if (heightMode == MeasureSpec.AT_MOST) {
             int lines = calculateLines(content, width - getPaddingLeft() - getPaddingRight()).size();
-            int indeedHeight = getPaddingTop() + getPaddingBottom() + (int) offset * lines;
+            int indeedHeight = getPaddingTop() + getPaddingBottom() + (int) offset * lines + (int) fm.bottom;
             height = indeedHeight > heightSize ? heightSize : indeedHeight;
         } else {
             int lines = calculateLines(content, width - getPaddingLeft() - getPaddingRight()).size();
-            height = getPaddingTop() + getPaddingBottom() + (int) offset * lines;
+            height = getPaddingTop() + getPaddingBottom() + (int) offset * lines + (int) fm.bottom;
         }
         setMeasuredDimension(width, height);
     }
@@ -147,13 +151,16 @@ public class CustomTextView extends View {
         invalidate();
     }
 
+    /**
+     * @param textColor R.color.xx
+     */
     public void setTextColor(@ColorRes int textColor) {
         mPaint.setColor(getResources().getColor(textColor));
         invalidate();
     }
 
     /**
-     * @param textSize xx dip
+     * @param textSize R.dimen.xx
      */
     public void setTextSize(@DimenRes int textSize) {
         mPaint.setTextSize(getResources().getDimension(textSize));
@@ -162,7 +169,7 @@ public class CustomTextView extends View {
     }
 
     /**
-     * @param spacing xx dip
+     * @param spacing R.dimen.xx
      */
     public void setLineSpacingExtra(@DimenRes int spacing) {
         this.lineSpace = getResources().getDimension(spacing);
