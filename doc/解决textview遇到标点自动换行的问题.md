@@ -1,3 +1,4 @@
+```Java
 package com.pj.myregistermain.ui;
 
 import android.annotation.TargetApi;
@@ -177,3 +178,4 @@ public class CustomTextView extends View {
         invalidate();
     }
 }
+```Java
