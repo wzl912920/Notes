@@ -1,6 +1,4 @@
 ```Java
-package com.pj.myregistermain.tool;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -33,8 +31,6 @@ import com.amap.api.services.geocoder.GeocodeResult;
 import com.amap.api.services.geocoder.GeocodeSearch;
 import com.amap.api.services.geocoder.RegeocodeQuery;
 import com.amap.api.services.geocoder.RegeocodeResult;
-import com.pj.myregistermain.R;
-import com.pj.myregistermain.activity.BaseActivity;
 import com.sdu.didi.openapi.DIOpenSDK;
 
 import java.net.URISyntaxException;
