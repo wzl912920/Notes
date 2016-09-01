@@ -1,5 +1,4 @@
 ```Java
-package com.pj.myregistermain.ui;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -10,10 +9,6 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.DimenRes;
 import android.util.AttributeSet;
 import android.view.View;
-
-
-import com.pj.myregistermain.R;
-import com.pj.myregistermain.application.MyApplication;
 
 import java.util.ArrayList;
 
