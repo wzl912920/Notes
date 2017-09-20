@@ -55,6 +55,59 @@
       map { it.toUpperCase() }
       forEach { kotlin.io.println(it) }
     }
+    //map遍历
+    val map = mapOf("a" to 2 , "b" to 3)
+    for ((a , b) in map) {
+        print(a + "====" + b.toString())
+    }
   }
 ```
 ###### 4、已知bug，kotlin中是支持直接在xml中写onClick事件的，但是如果在ActivityA的layou里定义了一个onClick事件methodA并在ActivityA中实现了这个方法，如果再在ActivityB中的layout里定义一个onClick事件也叫methodA但是没有实现，那么这个点击事件会调到ActivityA里
+###### 5、部分特殊用法
+```Java
+        //with(object)
+        class A {
+            fun methodA() {
+            }
+            fun methodB() {}
+        }
+        val a = A()
+        //apply,调用某对象的apply函数，在函数范围内，可以任意调用该对象的任意方法，并返回该对象
+        //let,默认当前这个对象作为闭包的it参数，返回值是函数里面最后一行，或者指定return
+        //with,是一个单独的函数并不是Kotlin中的extension，所以调用方式有点不一样，返回是最后一行，可以直接调用对象的方法，感觉像是let和apply的结合。
+        //run函数和apply函数很像，只不过run函数是使用最后一行的返回，apply返回当前自己的对象。
+        with(a) {
+            methodA()
+            methodB()
+        }
+```
+[apply,with,let,run详细介绍](http://blog.csdn.net/guijiaoba/article/details/54615036)
+```Java
+        //@loop
+        haha@ for (i in 1..10) {
+            if (i == 3) break@haha
+        }
+        //infix
+        infix fun Int.x(s : Int) {}
+        1 x 2//相当于1.x(2) infix只能在一个参数的方法前定义
+        
+        //test default value
+        class M() {
+            fun x(s : Int , i : Int = 2 , b : Boolean = true) {
+                log("$s-------$i-------$b")
+            }
+        }
+        M().x(1 , 4)//print 1-------4-------true
+        //test vararg
+        fun testVararg(vararg ts : String , t : Int) {}
+        testVararg("" , "" , t = 1)
+        
+```
+
+
+
+
+
+
+
+
