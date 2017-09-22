@@ -101,7 +101,37 @@
         //test vararg
         fun testVararg(vararg ts : String , t : Int) {}
         testVararg("" , "" , t = 1)
-        
+```
+###### 6、活学活用apply,java中的临时赋值语句如何转换为对应的kotlin语法（kotlin中不支持同时先赋值再操作的语法，但是我么可以变个方式使用）
+```Java
+    //Java
+    public class A {
+        public void sample() {
+            int j = 11;
+            while ((j = getNext()) > 0) {
+                Log.e("AAAA", "" + j);
+            }
+        }
+        private int x = 2;
+        private int getNext() {
+            Log.e("AAAA", "getNext=" + --x);
+            return x;
+        }
+    }
+    //kotlin 通过apply实现（或者通过do-while）
+    class B {
+        fun sample() {
+            var i = 11
+            while (getNext().apply { i = this } > 0) {
+                Log.e("BBBB" , "$i")
+            }
+        }
+        private var x = 2
+        private fun getNext() : Int {
+            Log.e("BBBB" , "getNext=" + --x)
+            return x
+        }
+    }
 ```
 
 
